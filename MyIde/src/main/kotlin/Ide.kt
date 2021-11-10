@@ -24,6 +24,7 @@ class Ide() {
             if (it == element) {
                 tmp = index
                 println(cursor.setCursor(tmp, text))
+                isWord(text)
                 return tmp
             }
         }
@@ -40,6 +41,21 @@ class Ide() {
         }
         saveText(str)
     }
+    fun isWord(word : String) : Boolean {
+        val cursorPosition = cursor.getPosition()
+        var startPoint : Char = text[cursorPosition]
+        for (it in startPoint .. text[0]){
+            if (it == ' '){
+                for (it in startPoint .. text[text.length]){
+                    if (it == ' '){
+                        return true
+                    }
+                }
+            }
+        }
+        return false
+    }
+
 
     fun readFileAsTextUsingInputStream(fileName: String) =
         saveText((File(fileName).inputStream().readBytes().toString(Charsets.UTF_8)).toString())

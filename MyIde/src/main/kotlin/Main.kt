@@ -3,6 +3,6 @@ fun main(args: Array<String>) {
     //Ide.writeToFile("Denis is supaDuppa Montazhnik")
     //println(Ide.printFile())
     ide.readFileAsTextUsingInputStream("testHTML.html")
-    println(ide.getTextElement('b'))
+    println(ide.getTextElement('e'))
     println(ide.printFile())
 }
